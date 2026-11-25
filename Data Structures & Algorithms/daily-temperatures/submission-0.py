@@ -1,0 +1,18 @@
+class Solution:
+    def dailyTemperatures(self, temperatures: List[int]) -> List[int]:
+        lord = len(temperatures)
+        result = [0] *lord
+        stack = []
+        for i, current_temp in enumerate(temperatures):
+            while stack and current_temp > temperatures[stack[-1]]:
+                prev_day= stack.pop()
+                result[prev_day] = i - prev_day  
+            stack.append(i)   
+            
+        return result
+
+
+
+
+        
+        
